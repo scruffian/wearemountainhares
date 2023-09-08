@@ -161,7 +161,6 @@ function animate(i) {
 	s = i / 3;
 	l = i / 2;
     document.getElementById('st2').style.fill = 'hsl(' + h + ', '+ s +'%, '+ l +'%)';
-	console.log(i % 10);
     setTimeout(function() {
         animate(++i)
     }, i);
