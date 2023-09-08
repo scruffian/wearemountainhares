@@ -156,7 +156,17 @@ legend {
 <a href="https://chat.whatsapp.com/IlnH8prtnBQ6QC1e9lFSyQ"><img src="wa.png" alt="whatsapp" width="24" height="24" /></a>
 </p>
 <script>
-	document.getElementById('st2').style.fill = '#'+Math.floor(Math.random()*16777215).toString(16);
+function animate(i) {
+	h = i + 200;
+	s = i / 3;
+	l = i / 2;
+    document.getElementById('st2').style.fill = 'hsl(' + h + ', '+ s +'%, '+ l +'%)';
+	console.log(i % 10);
+    setTimeout(function() {
+        animate(++i)
+    }, i);
+}
+animate(0);
 </script>
 </body>
 </html>
