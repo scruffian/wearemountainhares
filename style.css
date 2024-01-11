@@ -25,7 +25,7 @@ a:hover { opacity: .9; }
 }
 
 figure {
-	margin: 4em auto;
+	margin: 0 auto;
 }
 blockquote {
 	font-size: 2em;
@@ -48,7 +48,9 @@ legend {
     max-width: 80ch;
     text-align: left;
 }
-
-.press h2 {
+h1,h2,h3,h4,h5,h6 {
+    text-align: center;
+}
+h2 {
     margin-top: 2em;
 }
