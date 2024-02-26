@@ -1,13 +1,36 @@
-body { color: #fff; background: #000; font-size: 1.2em; text-align: center;font-family: courier; margin:1em; padding:0;}
-input { border: 1px solid #fff; color: #fff; background: #000; font-family: courier; font-size: 1.5em; }
+@font-face {
+  font-family: "decadence";
+  src:
+    local("decadence"),
+    url('./fonts/decadence\ condensed\ Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "BlackBeard";
+  src:
+    local("BlackBeard"),
+    url('./fonts/BlackBeard\ Regular.otf') format('truetype');
+}
+@font-face {
+  font-family: "P22 Franklin";
+  src:
+    local("P22 Franklin"),
+    url('./fonts/P22\ Franklin\ Caslon\ W01\ Reg.ttf') format('truetype');
+}
+body { color: #333; background: #fff; background-image: url(subtle-grunge.png); font-size: 2em; text-align: center;font-family: "BlackBeard", serif; font-weight: 100; margin:1em; padding:0;}
+input { border: 1px solid #333;  background: transparent; font-family: "P22 Franklin", serif; font-size: 1.5em; }
+input[type=submit] { transition: all 100ms ease-in-out; cursor: pointer; }
+input[type=submit]:hover { background: #333; color: #fff; }
 svg { height: auto; max-width: 100%; width: 200px; }
-h1,h2,h3,h4,h5,h6 { font-family: 'Cinzel', serif; font-weight: normal; }
+h1, h2 { font-family: "decadence", serif; font-weight: 400;}
+h3,h4,h5,h6 {  font-family: "P22 Franklin", serif; font-weight: 400; }
 a { color: #fff }
 a:hover { opacity: .9; }
+.big-video {
+  margin: 0 auto;
+}
 .auto-resizable-iframe {
   max-width: 800px;
   width: 100%;
-  margin: 0px auto;
 }
 
 .auto-resizable-iframe > div {
@@ -29,7 +52,7 @@ figure {
 }
 blockquote {
 	font-size: 2em;
-	font-family: 'Cinzel', serif;
+	font-family: "P22 Franklin", serif;
 	margin: .2em auto;
 	max-width: 600px;
 }
@@ -40,8 +63,17 @@ legend {
 	margin-bottom: 1em;
 }
 .videos {
-	margin: 10em auto;
+	margin: 20vh auto;
 	max-width: 1800px;
+}
+.videos .all-videos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
+}
+.videos .auto-resizable-iframe {
+  max-width: 400px;
 }
 .press {
     margin: 0 auto;
@@ -53,4 +85,46 @@ h1,h2,h3,h4,h5,h6 {
 }
 h2 {
     margin-top: 2em;
+    font-size: 3em;
 }
+h4 { margin: 0; padding: 0; }
+p { margin: 1em 0; }
+.shows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.shows li {
+  margin-bottom: 2em;
+}
+.icons {
+  filter: invert();
+}
+.icons a {
+  transition: opacity 100ms ease-in-out;
+  opacity: .7;
+}
+.icons a:hover {
+  opacity: 1;
+}
+input[type=submit] {
+  background-color: rgba(0,0,0,0.7);
+  background-image: url(subtle-grunge.png);
+  border: none;
+  color: #fff;
+  padding: .2em .5em;
+}
+input[type=email] {
+  background-color: rgba(255,255,255,.7);
+  border: none;
+  color: #000;
+  padding: .2em;
+}
+input::placeholder {
+  color: #999;
+}
+legend {
+  font-family: "P22 Franklin", serif;
+}
+.logo { position: fixed; z-index: -1; left: calc( 50% - 300px ); top: 100px; opacity: .1;}
+.logo svg { height: 600px; width: 600px;}
