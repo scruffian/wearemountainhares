@@ -79,7 +79,7 @@
 <h1 style="font-size: 2.9em; margin: 0;">FOLK CIRCLE</h1>
 <blockquote style="font-size: 2.5em; max-width: none; text-transform: uppercase;">Bring your songs we'll sing along</blockquote>
 	<p>
-		Monday 27th July 2026, 7:30pm | The Bell Inn, Trysull, Wolverhampton WV5 7JB</p>
+		<span id="folk-circle-date"></span>, 7:30pm | The Bell Inn, Trysull, Wolverhampton WV5 7JB</p>
 
 </div>
 </div>
@@ -91,7 +91,50 @@
 
 </div>
 </div>
+<script>
+function getFourthMonday(year, month) {
+	const firstDayOfMonth = new Date(year, month, 1).getDay();
+	const firstMondayDate = 1 + ((1 - firstDayOfMonth + 7) % 7);
+	return new Date(year, month, firstMondayDate + 21);
+}
 
+function getNextFolkCircleDate(today) {
+	const currentDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+	let folkCircleDate = getFourthMonday(currentDate.getFullYear(), currentDate.getMonth());
 
+	if (currentDate > folkCircleDate) {
+		folkCircleDate = getFourthMonday(currentDate.getFullYear(), currentDate.getMonth() + 1);
+	}
+
+	return folkCircleDate;
+}
+
+function getOrdinalSuffix(day) {
+	if (day > 3 && day < 21) {
+		return 'th';
+	}
+
+	switch (day % 10) {
+		case 1:
+			return 'st';
+		case 2:
+			return 'nd';
+		case 3:
+			return 'rd';
+		default:
+			return 'th';
+	}
+}
+
+function formatFolkCircleDate(date) {
+	const weekday = date.toLocaleDateString('en-GB', { weekday: 'long' });
+	const month = date.toLocaleDateString('en-GB', { month: 'long' });
+	const day = date.getDate();
+
+	return `${weekday} ${day}${getOrdinalSuffix(day)} ${month} ${date.getFullYear()}`;
+}
+
+document.getElementById('folk-circle-date').textContent = formatFolkCircleDate(getNextFolkCircleDate(new Date()));
+</script>
 </body>
 </html>
