@@ -36,7 +36,7 @@ a:hover { opacity: .9; }
 
 .auto-resizable-iframe > div {
   position: relative;
-  padding-bottom: 75%;
+  padding-bottom: 56.25%;
   height: 0px;
 }
 
@@ -86,6 +86,22 @@ legend {
     margin: 0 auto;
     max-width: 80ch;
     text-align: left;
+}
+.photos {
+  margin: 0 auto;
+  max-width: 1800px;
+  columns: 280px 3;
+  column-gap: 1em;
+}
+.photos a {
+  display: block;
+  margin-bottom: 1em;
+  break-inside: avoid;
+}
+.photos img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 h1,h2,h3,h4,h5,h6 {
     text-align: center;
